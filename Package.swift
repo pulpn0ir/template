@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "nodes-template",
+    name: "{{name}}",
     platforms: [
        .macOS(.v10_15)
     ],
@@ -11,8 +11,9 @@ let package = Package(
         .package(url: "https://github.com/nodes-vapor/keychain.git", from: "2.0.0-rc"),
         .package(url: "https://github.com/nodes-vapor/submissions.git", from: "3.0.0-rc"),
         .package(url: "https://github.com/vapor-community/VaporMailgunService.git", from: "4.0.0-rc"),
-        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0"),
-        .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
+        .package(url: "https://github.com/vapor/fluent-{{db.url}}-driver.git", from: "{{db.version}}"),
+        .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),{{#leaf}}
+        .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0-rc"),{{/leaf}}
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0-rc"),
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0")
     ],
@@ -22,9 +23,9 @@ let package = Package(
             dependencies: [
                 .product(name: "Bugsnag", package: "bugsnag"),
                 .product(name: "Fluent", package: "fluent"),
-                .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver"),
-                .product(name: "Keychain", package: "keychain"),
-                .product(name: "Leaf", package: "leaf"),
+                .product(name: "Fluent{{db.module}}Driver", package: "fluent-{{db.url}}-driver"),
+                .product(name: "Keychain", package: "keychain"),{{#leaf}}
+                .product(name: "Leaf", package: "leaf"),{{/leaf}}
                 .product(name: "Mailgun", package: "VaporMailgunService"),
                 .product(name: "Submissions", package: "submissions"),
                 .product(name: "Vapor", package: "vapor"),
