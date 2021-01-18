@@ -43,9 +43,9 @@ files:
       - folder: Views
         files:
           - folder: Emails
-             files:
-               - file: resetPassword.leaf
-               - file: welcome.leaf
+            files:
+              - file: resetPassword.leaf
+              - file: welcome.leaf
   - file: Dockerfile
     dynamic: true
   - file: docker-compose.yml
