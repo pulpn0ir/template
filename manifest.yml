@@ -28,6 +28,7 @@ files:
     dynamic: true
   - folder: Sources
     files:
+      - folder: App
       - folder: Run
         files:
           - main.swift
