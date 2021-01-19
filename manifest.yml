@@ -51,4 +51,3 @@ files:
   - file: docker-compose.yml
     dynamic: true
   - .gitignore
-  - .dockerignore
